@@ -153,7 +153,8 @@ object AllSettings : SettingsRegistry() {
     /**
      * 游戏内存分配大小
      */
-    val ramAllocation = intSetting("ramAllocation", ((Runtime.getRuntime().maxMemory() / (1024 * 1024)).toInt() * 4).coerceIn(1536, 3072), min = 256)
+    val ramAllocation = intSetting("ramAllocation", (Runtime.getRuntime().maxMemory() / 262144L).toInt().coerceIn(1536, 3072), min = 256)
+    
     
 
     /**
