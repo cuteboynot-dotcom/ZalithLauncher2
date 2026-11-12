@@ -340,8 +340,8 @@ abstract class Launcher(
         args.purgeArg("-XX:ActiveProcessorCount")
 
         //Add automatically generated args
-        val finalRam = if (AllSettings.ramAllocation.getValue() == null) (Runtime.getRuntime().maxMemory() / 262144L).toInt().coerceIn(1536, 3072) else ramAllocation
-val ramAllocationString = finalRam.toString()
+        val finalRam = if (AllSettings.ramAllocation.getValue() == null) (java.lang.Runtime.getRuntime().maxMemory() / 262144L).toInt().coerceIn(1536, 3072) else ramAllocation
+        
 
         args.add("-Xms${ramAllocationString}M")
         args.add("-Xmx${ramAllocationString}M")
