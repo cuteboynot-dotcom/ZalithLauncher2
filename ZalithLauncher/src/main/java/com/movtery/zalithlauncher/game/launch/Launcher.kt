@@ -341,8 +341,7 @@ abstract class Launcher(
 
         //Add automatically generated args
         val finalRam = if (AllSettings.ramAllocation.getValue() == null) (java.lang.Runtime.getRuntime().maxMemory() / 262144L).toInt().coerceIn(1536, 3072) else ramAllocation
-        
-
+        val ramAllocationString = finalRam.toString()
         args.add("-Xms${ramAllocationString}M")
         args.add("-Xmx${ramAllocationString}M")
 
@@ -360,8 +359,7 @@ abstract class Launcher(
         args.add("-Dorg.lwjgl.system.allocator=system")
 
         // Some phones are not using the right number of cores, fix that
-        args.add("-XX:ActiveProcessorCount=${java.lang.Runtime.getRuntime().availableProcessors()}")
-    }
+        args.add("-XX:ActiveProcessorCount=${java.lang.Runtime.getRuntime().availableProcessors()}")    }
 
     protected fun MutableList<String>.purgeArg(argStart: String) {
         removeIf { arg: String -> arg.startsWith(argStart) }
