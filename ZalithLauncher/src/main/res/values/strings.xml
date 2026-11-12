@@ -20,6 +20,7 @@
      applies to every translated strings.xml, not only this source file.
 -->
 <resources>
+  <string name="app_name">TurboCraft</string>
     <string name="generic_cancel">Cancel</string>
     <string name="generic_confirm">Confirm</string>
     <string name="generic_error">Error</string>
