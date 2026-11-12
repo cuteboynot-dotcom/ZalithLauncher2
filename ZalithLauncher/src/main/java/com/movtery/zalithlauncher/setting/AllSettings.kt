@@ -133,7 +133,7 @@ object AllSettings : SettingsRegistry() {
     /**
      * 不检查游戏完整性
      */
-    val skipGameIntegrityCheck = boolSetting("skipGameIntegrityCheck", false)
+    val skipGameIntegrityCheck = boolSetting("skipGameIntegrityCheck", true)
 
     /**
      * 版本自定义信息
@@ -153,7 +153,8 @@ object AllSettings : SettingsRegistry() {
     /**
      * 游戏内存分配大小
      */
-    val ramAllocation = intSetting("ramAllocation", null, min = 256)
+    val ramAllocation = intSetting("ramAllocation", ((Runtime.getRuntime().maxMemory() / (1024 * 1024)).toInt() * 4).coerceIn(1536, 3072), min = 256)
+    
 
     /**
      * 自定义Jvm启动参数
